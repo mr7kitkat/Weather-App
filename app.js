@@ -64,7 +64,7 @@ form.addEventListener('submit',function(e) {
         alert('Something is wrong!!');
     })
 
-    req.open('GET', `http://api.weatherapi.com/v1/current.json?key=${key}&q=${textInput.value}`)
+    req.open('GET', `https://api.weatherapi.com/v1/current.json?key=${key}&q=${textInput.value}`)
     req.send();
     
 });
