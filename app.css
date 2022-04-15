@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 1s linear;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    max-height: 500px;
+    max-width: 400px;
+    border-radius: 2rem;
+    justify-content: space-evenly;
+
+    background: #485563;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+form {
+    margin: 2rem auto;
+}
+
+form input {
+    height: 30px;
+    padding: 0.25rem;
+}
+
+#input {
+    text-align: center;
+
+}
+
+main section {
+    height: 300px;
+}
+
+section img {
+    height: auto;
+    max-width: 100%;
+}
+
+section h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+table {
+    border-spacing: 10px;
+}
+
+td {
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+}
+
+a {
+    color: white;
+    font-style: italic;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding: 1rem auto;
+    margin-top: 25px;
+}
+
+.none {
+    display: none;
+}
+
+.display {
+    display: flex;
+}
+

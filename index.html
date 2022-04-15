@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="app.css">
+</head>
+<body class="flex">
+    <main class="flex column">
+        <form>
+            <input type="text" placeholder="Location Name" id="input" autofocus>
+            <input type="submit">
+        </form>
+
+        <section class="flex column none sec">
+            <img src="" alt='daymood' id="daymood">
+            <h1 id="name">Location Name</h1>
+
+            <table>
+                <tr>
+                    <td>Country</td>
+                    <td id="country"></td>
+                </tr>
+                <tr>
+                    <td>Temp. in C</td>
+                    <td id="c">0</td>
+                </tr>
+                <tr>
+                    <td>Temp in F</td>
+                    <td id="f">0</td>
+                </tr>
+                <tr>
+                    <td>Humidity</td>
+                    <td id="h">0</td>
+                </tr>
+                <tr>
+                    <td>Last Updated</td>
+                    <td id="time"></td>
+                </tr>
+            </table>
+        </section>
+
+        <a href="https://www.weatherapi.com/">Thanks to Weather API</a>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
