@@ -4,47 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
 
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body class="flex">
-    <main class="flex column">
-        <form>
-            <input type="text" placeholder="Location Name" id="input" autofocus>
-            <input type="submit">
-        </form>
+<body>
+    <div class="app ">
 
-        <section class="flex column none sec">
-            <img src="" alt='daymood' id="daymood">
-            <h1 id="name">Location Name</h1>
+        <div class="background ">
+            <div class="temp ">
+                <p class="temp"></p>
+            </div>
 
-            <table>
-                <tr>
-                    <td>Country</td>
-                    <td id="country"></td>
-                </tr>
-                <tr>
-                    <td>Temp. in C</td>
-                    <td id="c">0</td>
-                </tr>
-                <tr>
-                    <td>Temp in F</td>
-                    <td id="f">0</td>
-                </tr>
-                <tr>
-                    <td>Humidity</td>
-                    <td id="h">0</td>
-                </tr>
-                <tr>
-                    <td>Last Updated</td>
-                    <td id="time"></td>
-                </tr>
-            </table>
-        </section>
+            <div class="location ">
+                <h1 class="location"></h1>
+            </div>
+        </div>
 
-        <a href="https://www.weatherapi.com/">Thanks to Weather API</a>
-    </main>
-    <script src="app.js"></script>
+        <div class="data">
+            <form method="post">
+                <input type="text" id="searchbox" placeholder="Town/City Name">
+                <button>Search</button>
+            </form>
+
+
+            <div class="today temp-data ">
+                <h2 class="subheading">Today Tempreture</h2>
+                <div class="main">
+                    <h3>Main</h3>
+                    <div class="main-info">
+                        <div class="prop-val">
+                            <span class="prop">Tempreture :</span>
+                            <span class="value"></span>
+                        </div>
+                        <div class="prop-val">
+                            <span class="prop">Feels Like :</span>
+                            <span class="value"></span>
+                        </div>
+                        <div class="prop-val">
+                            <span class="prop">Humidity :</span>
+                            <span class="value"></span>
+                        </div>
+                        <div class="prop-val">
+                            <span class="prop">Wind Speed :</span>
+                            <span class="value"></span>
+                        </div>
+                        <div class="prop-val">
+                            <span class="prop">Time Zone :</span>
+                            <span class="value"></span>
+                        </div>
+                        <div class="prop-val">
+                            <span class="prop">Visibility :</span>
+                            <span class="value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="others">
+                    <h3>Other Info</h3>
+                    <div class="other-info">
+                        <div class="prop-val"><span class="prop">Min Temp. :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Max Temp. :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Sea Level :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Ground Level :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Sunrise Time: </span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Sunset Time :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Location :</span><span class="value"></span></div>
+                        <div class="prop-val"><span class="prop">Country :</span><span class="value"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="future temp-data ">
+                <h2 class="subheading">Forecasting</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="./scripts/app.js"></script>
 </body>
 </html>
