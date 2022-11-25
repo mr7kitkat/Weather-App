@@ -2,6 +2,7 @@ import { weatherApp } from "./scripts/weather_mod";
 
 // Intasiating app
 const app = new weatherApp("samastipur");
+
 async function get_weather_Report(placeName = "samastipur") {
   app.location = placeName;
   app

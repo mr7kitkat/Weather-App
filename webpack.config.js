@@ -5,6 +5,6 @@ module.exports = {
   entry: "./app.js",
   output: {
     path: path.resolve(__dirname, "scripts"),
-    filename: "script.js",
+    filename: "main.js",
   },
 };

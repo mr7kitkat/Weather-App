@@ -21,7 +21,7 @@ body {
   width: 100%;
   max-width: 1280px;
   max-height: 800px;
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
   overflow: hidden;
   display: grid;
@@ -31,13 +31,75 @@ body {
 }
 
 .background {
-  background-color: yellowgreen;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(249, 253, 50);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px;
 }
 
 .data {
-  padding: 1rem;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(33, 32, 32);
+  color: white;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 1fr;
+  grid-template-rows: 50px 3fr 4fr;
   gap: 0px;
+  gap: 10px;
+}
+.data form {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  grid-template-rows: 1fr;
+  gap: 0px;
+  gap: 5px;
+}
+.data form input, .data form button {
+  padding: 0 10px;
+  padding-left: 5px;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+}
+.data form input {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  padding-left: 20px;
+}
+.data form button {
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.l1Head {
+  font-style: italic;
+  color: lightgoldenrodyellow;
+  position: relative;
+  transition: 0.3s all;
+}
+
+.l1Head:hover {
+  color: gold;
+  transform: translateX(20px);
+}
+
+.l1Head::after {
+  content: "";
+  display: inline-block;
+  height: 32px;
+  width: 150px;
+  background-color: black;
+  box-shadow: 5px 2px yellow;
+  transform: skewX(-25deg);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 20px;
 }/*# sourceMappingURL=style.css.map */
