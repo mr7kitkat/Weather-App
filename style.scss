@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-    background-color: transparent;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 @mixin grids($row: 1fr, $col: 1fr, $gap: 0px) {
     display: grid;
     grid-template-columns: $col;
@@ -19,14 +11,29 @@ body {
     gap: $gap;
 }
 
+@mixin flex($justify:center, $align: center, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    @include flex();
+}
+
 .app {
     height: 100%;
     width: 100%;
     max-width: 1280px;
-    max-height: 720px;
+    max-height: 800px;
     border-radius: 1.5rem;
-    box-shadow: 5px 5px 20px lightgray;
-    margin: 0 auto;
+    box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     overflow: hidden;
     @include grids($col: 1fr 1fr);
 }
@@ -36,33 +43,7 @@ body {
 }
 
 .data {
-    padding: 0.5rem;
+    padding: 1rem;
     @include grids($row: 50px 1fr 1fr);
-
-    form {
-        @include grids($col: 1fr 60px,$gap:5px);
-        padding: 2px;
-
-        $radius: 8px;
-        input {
-            border-radius: $radius;
-            padding: 5px 15px;
-            font-size: 1rem;
-        }
-
-        button {
-            border-radius: $radius;
-
-        }
-    }
-
-    .temp-data {
-        padding: 1rem;
-
-        h2 {
-            width: 250px;
-            font-style: italic;
-            box-shadow: 5px 5px yellow;
-        }
-    }
 }
+
