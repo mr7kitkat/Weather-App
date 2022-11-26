@@ -11,17 +11,17 @@ async function get_weather_Report(placeName = "samastipur") {
       if (rawData.current.cod == 404) {
         throw new Error(rawData.current.message);
       }
-      const cleandata = cleanData(rawData);
+      const cleandata = get_cleanData(rawData);
       parseData(cleandata);
     })
     .catch((err) => ErrorHandler(err));
 }
 
-function cleanData(data) {
+function get_cleanData(data) {
   const current = {
     longitude: data.current.coord.lon,
     latitude: data.current.coord.lat,
-    weatherCondition: data.current.weather[0].description,
+    weatherCondition: data.current.weather[0].main,
     temp: data.current.main.temp,
     feels_like: data.current.main.feels_like,
     temp_min: data.current.main.temp_min,
@@ -38,18 +38,52 @@ function cleanData(data) {
     sunrise: data.current.sys.sunrise,
     sunset: data.current.sys.sunset,
   };
-  return current;
+
+  const forecast = [];
+
+  data.forecast.list.forEach((entry) => {
+    const [dateText, timeText] = entry.dt_txt.split(" ");
+    forecast.push({
+      date: entry.dt,
+      temp: entry.main.temp,
+      weatherStatus: entry.weather[0].main,
+      dateInText: dateText,
+      timeInText: timeText,
+    });
+  });
+
+  console.log(forecast);
+  return { current, forecast };
 }
 
 function parseData(cleanData) {
-  for (const key in cleanData) {
+  const { current, forecast } = cleanData;
+  for (const key in current) {
     const tempElement = document.querySelectorAll(`.value.${key}`);
     if (tempElement.length) {
       tempElement.forEach((element) => {
-        element.innerText = cleanData[key];
+        element.innerText = current[key];
       });
     }
   }
+
+  const forecastContainor = document.querySelector(".horizental-info");
+
+  forecast.forEach((day) => {
+    const htmlContent = `
+    <div class="upcoming-day">
+      <span class="icon"></span>
+      <h4>${day.temp}</h4>
+      <div class="status">
+        <p class="weather-condition">${day.weatherStatus}</p>
+        <p class="forecast date">${day.dateInText}</p>
+        <p class="forecast time">${day.timeInText}</p>
+      </div>
+    </div>
+    `;
+
+    forecastContainor.innerHTML += htmlContent;
+  });
 }
 
 function ErrorHandler(err) {
