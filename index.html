@@ -1,87 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./styles/style.css" />
 
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
+    <script defer src="./scripts/main.js"></script>
+  </head>
+  <body>
     <div class="app">
-
-        <div class="background ">
-            <div class="tempreture">
-                <p class="value temp"></p>
-            </div>
-
-            <div class="location">
-                <h1 class="value cityName"></h1>
-            </div>
+      <div class="background">
+        <div class="tempreture">
+          <p class="value temp"></p>
         </div>
 
-        <div class="data">
-            <form id="searchLocation">
-                <input type="text" id="searchbox" placeholder="Town/City Name">
-                <button >Search</button>
-            </form>
-
-
-            <div class="today temp-data ">
-                <h2 class="l1Head">Today</h2>
-
-                <div class="main">
-                    <h3>Main</h3>
-                    <div class="info">
-                        <div class="prop-val">
-                            <span class="prop">Tempreture</span>
-                            <span class="value temp"></span>
-                        </div>
-                        <div class="prop-val">
-                            <span class="prop">Feels Like</span>
-                            <span class="value feels_like"></span>
-                        </div>
-                        <div class="prop-val">
-                            <span class="prop">Humidity</span>
-                            <span class="value humidity"></span>
-                        </div>
-                        <div class="prop-val">
-                            <span class="prop">Wind Speed</span>
-                            <span class="value windSpeed"></span>
-                        </div>
-                        <div class="prop-val">
-                            <span class="prop">Time Zone</span>
-                            <span class="value timezone"></span>
-                        </div>
-                        <div class="prop-val">
-                            <span class="prop">Visibility</span>
-                            <span class="value visibility"></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="others">
-                    <h3 class="subheading">Other Info</h3>
-                    <div class="other-info">
-                        <div class="prop-val"><span class="prop">Min Temp.</span><span class="value temp_min"></span></div>
-                        <div class="prop-val"><span class="prop">Max Temp.</span><span class="value temp_max"></span></div>
-                        <div class="prop-val"><span class="prop">Sea Level</span><span class="value sea_level"></span></div>
-                        <div class="prop-val"><span class="prop">Ground Level</span><span class="value grnd_level"></span></div>
-                        <div class="prop-val"><span class="prop">Sunrise Time: </span><span class="value sunrise"></span></div>
-                        <div class="prop-val"><span class="prop">Sunset Time</span><span class="value sunset"></span></div>
-                        <div class="prop-val"><span class="prop">Location</span><span class="value cityName"></span></div>
-                        <div class="prop-val"><span class="prop">Country</span><span class="value country"></span></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="future temp-data ">
-                <h2 class="l1Head">Forecasting</h2>
-            </div>
+        <div class="location">
+          <h1 class="value cityName"></h1>
         </div>
+      </div>
+
+      <div class="data">
+        <form id="searchLocation">
+          <input type="text" id="searchbox" placeholder="Town/City Name" />
+          <button>Search</button>
+        </form>
+
+        <div class="today temp-data">
+          <h2 class="l1Head">Today</h2>
+
+          <div class="today info">
+            <div class="prop-val" id="tempreture">
+              <span class="material-symbols-outlined icon">
+                device_thermostat
+              </span>
+              <div class="sub-info">
+                <span class="prop">Tempreture</span>
+                <span class="value temp"></span>
+              </div>
+            </div>
+            <div class="prop-val" id="feelingLike">
+              <span class="material-symbols-outlined icon">
+                temp_preferences_eco
+              </span>
+              <div class="sub-info">
+                <span class="prop">Feels Like</span>
+                <span class="value feels_like"></span>
+              </div>
+            </div>
+            <div class="prop-val">
+              <span class="material-symbols-outlined icon"> humidity_mid </span>
+              <div class="sub-info">
+                <span class="prop">Humidity</span>
+                <span class="value humidity"></span>
+              </div>
+            </div>
+            <div class="prop-val">
+              <span class="material-symbols-outlined icon"> air </span>
+              <div class="sub-info">
+                <span class="prop">Wind Speed</span>
+                <span class="value windSpeed"></span>
+              </div>
+            </div>
+            <div class="prop-val">
+              <span class="material-symbols-outlined icon"> schedule </span>
+              <div class="sub-info">
+                <span class="prop">Time Zone</span>
+                <span class="value timezone"></span>
+              </div>
+            </div>
+            <div class="prop-val">
+              <span class="material-symbols-outlined icon"> visibility </span>
+              <div class="sub-info">
+                <span class="prop">Visibility</span>
+                <span class="value visibility"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-temp-data">
+            <h3 class="subheading">Other Info</h3>
+            <div class="other info">
+              <div class="prop-val">
+                <span class="prop">Min Temp.</span
+                ><span class="value temp_min"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Max Temp.</span
+                ><span class="value temp_max"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Sea Level</span
+                ><span class="value sea_level"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Ground Level</span
+                ><span class="value grnd_level"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Sunrise Time: </span
+                ><span class="value sunrise"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Sunset Time</span
+                ><span class="value sunset"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Location</span
+                ><span class="value cityName"></span>
+              </div>
+              <div class="prop-val">
+                <span class="prop">Country</span
+                ><span class="value country"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="future temp-data">
+          <h2 class="l1Head">Forecasting</h2>
+        </div>
+      </div>
     </div>
-
-    <!-- <script src="./scripts/main.js"></script> -->
-</body>
+  </body>
 </html>
