@@ -56,12 +56,13 @@ body {
 }
 
 .data {
+    padding: 10px 20px;
     @include setDimension();
     background-color: $bg-color-main2;
     color: white;
-    padding: 10px;
-    @include grids($row: 50px 3fr 4fr);
-    gap: 10px;
+    
+    @include grids($row: 50px 4fr 3fr);
+    gap: 16px;
 
 
     form {
@@ -115,5 +116,9 @@ body {
     position: absolute;
     top: 0;
     left: 20px;
+}
 
+
+.data-containor {
+    @include grids($row: 2fr 1fr)
 }

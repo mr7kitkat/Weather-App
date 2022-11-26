@@ -41,16 +41,16 @@ body {
 }
 
 .data {
+  padding: 10px 20px;
   height: 100%;
   width: 100%;
   background-color: rgb(33, 32, 32);
   color: white;
-  padding: 10px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 3fr 4fr;
+  grid-template-rows: 50px 4fr 3fr;
   gap: 0px;
-  gap: 10px;
+  gap: 16px;
 }
 .data form {
   height: 100%;
@@ -102,4 +102,11 @@ body {
   position: absolute;
   top: 0;
   left: 20px;
+}
+
+.data-containor {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  gap: 0px;
 }/*# sourceMappingURL=style.css.map */
