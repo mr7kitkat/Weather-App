@@ -259,7 +259,7 @@ body {
     height: 100vh;
     width: 100vw;
     max-height: 100%;
-    max-width: 100%;
+    max-width: 720px;
     border-radius: 0;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     display: grid;
@@ -269,6 +269,7 @@ body {
   }
   .data {
     padding: 20px;
+    overflow-x: hidden;
   }
   .data form {
     padding: 0 20px;
@@ -309,70 +310,5 @@ body {
   .horizental-info {
     width: 100%;
     max-width: 550px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .app {
-    min-width: 300px;
-  }
-  .data {
-    max-width: 580px;
-    overflow-y: scroll;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 80px 4fr 3fr;
-    gap: 0px;
-    gap: 16px;
-  }
-  .data form {
-    max-width: 500px;
-    padding: 10px;
-    height: 100px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 400px;
-    grid-template-rows: 1fr 1fr;
-    gap: 0px;
-    gap: 5px;
-  }
-  .data form input,
-.data form button {
-    border-radius: 0.5rem;
-  }
-  .data form button {
-    max-width: 350px;
-    padding: 0 2rem;
-    justify-self: center;
-  }
-  .info {
-    margin-left: 0;
-    display: grid;
-    grid-template-columns: 400px;
-    grid-template-rows: repeat(6, 60px);
-    gap: 0px;
-    gap: 8px;
-  }
-  .today.info #tempreture {
-    grid-row: 1/2;
-  }
-  .today.info #feelingLike {
-    grid-row: 3/4;
-  }
-  .other.info {
-    grid-template-rows: repeat(8, 60px);
-  }
-  .other.info span.icon {
-    height: 28px;
-  }
-  .other.info span.value {
-    font-size: 18px !important;
-  }
-  .other.info span.prop {
-    font-size: 12px !important;
-  }
-  .horizental-info {
-    width: 100%;
-    max-width: 380px;
-    min-width: 300px;
   }
 }/*# sourceMappingURL=style.css.map */

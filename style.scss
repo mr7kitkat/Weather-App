@@ -291,6 +291,7 @@ body {
 
   .data {
     padding: 20px;
+    overflow-x: hidden;
 
     form {
       padding: 0 20px;
@@ -336,81 +337,5 @@ body {
   .horizental-info {
     width: 100%;
     max-width: 550px;
-  }
-}
-
-// if screen width is max 600px
-@media screen and (max-width: 600px) {
-  .app {
-    min-width: 300px;
-    max-width: 600px;
-  }
-  .data {
-    max-width: 580px;
-    overflow-y: scroll;
-    @include grids($row: 80px 4fr 3fr);
-    gap: 16px;
-
-    // form styling where user can search for location and see their report
-    form {
-      max-width: 500px;
-      padding: 10px;
-      @include setDimension($h: 100px);
-      @include grids($row: 1fr 1fr, $col: 400px);
-      gap: 5px;
-
-      input,
-      button {
-        border-radius: 0.5rem;
-      }
-
-      button {
-        max-width: 350px;
-        padding: 0 2rem;
-        justify-self: center;
-      }
-    }
-  }
-
-  // Styling Today data part of the app
-  .info {
-    margin-left: 0;
-    @include grids($row: repeat(6, 60px), $col: 400px);
-    gap: 8px;
-  }
-
-  // Special styling applied to today part on top side
-  .today.info {
-    #tempreture {
-      grid-row: 1/2;
-    }
-
-    #feelingLike {
-      grid-row: 3/4;
-    }
-  }
-
-  // Styling applied on bottom part
-  .other.info {
-    grid-template-rows: repeat(8, 60px);
-
-    span.icon {
-      height: 28px;
-    }
-
-    span.value {
-      font-size: 18px !important;
-    }
-
-    span.prop {
-      font-size: 12px !important;
-    }
-  }
-
-  // Styling applied on Forecast .horizental-info bar
-  .horizental-info {
-    width: 100%;
-    max-width: 380px;
-    min-width: 300px;
   }
 }
