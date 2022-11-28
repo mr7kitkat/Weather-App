@@ -262,7 +262,7 @@ body {
 @media screen and (max-width: 1080px) {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
-    max-height: 95%;
+    max-height: 850px;
     max-width: 650px;
 
     border-radius: 2rem;
@@ -281,10 +281,10 @@ body {
 @media screen and (max-width: 720px) {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
-    max-height: 95%;
+    max-height: 100%;
     max-width: 100%;
 
-    border-radius: 2rem;
+    border-radius: 0;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     @include grids($col: 1fr, $row: 300px 1fr);
   }
@@ -331,20 +331,10 @@ body {
 // if screen width is max 600px
 @media screen and (max-width: 600px) {
   .app {
-    @include setDimension($h: 100vh, $w: 100vw);
-    max-height: 95%;
-    max-width: 100%;
-
-    border-radius: 2rem;
-    box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
-    @include grids($col: 1fr, $row: 300px 1fr);
+    min-width: 350px;
   }
-
   .data {
     max-width: 580px;
-    background-color: $bg-color-main2;
-    color: white;
-    padding: 10px;
     overflow-y: scroll;
     @include grids($row: 80px 4fr 3fr);
     gap: 16px;
@@ -358,15 +348,20 @@ body {
 
       input,
       button {
-        border-radius: 1.5rem;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        max-width: 350px;
+        padding: 0 2rem;
+        justify-self: center;
       }
     }
   }
 
   // Styling Today data part of the app
   .info {
-    max-width: 450px;
-    margin-left: 10px;
+    margin-left: 0;
     @include grids($row: repeat(6, 60px), $col: 1fr);
     gap: 8px;
   }
@@ -402,6 +397,7 @@ body {
   // Styling applied on Forecast .horizental-info bar
   .horizental-info {
     width: 100%;
-    max-width: 550px;
+    max-width: 480px;
+    min-width: 350px;
   }
 }

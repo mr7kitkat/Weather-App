@@ -240,7 +240,7 @@ body {
   .app {
     height: 100vh;
     width: 100vw;
-    max-height: 95%;
+    max-height: 850px;
     max-width: 650px;
     border-radius: 2rem;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
@@ -258,9 +258,9 @@ body {
   .app {
     height: 100vh;
     width: 100vw;
-    max-height: 95%;
+    max-height: 100%;
     max-width: 100%;
-    border-radius: 2rem;
+    border-radius: 0;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     display: grid;
     grid-template-columns: 1fr;
@@ -300,22 +300,10 @@ body {
 }
 @media screen and (max-width: 600px) {
   .app {
-    height: 100vh;
-    width: 100vw;
-    max-height: 95%;
-    max-width: 100%;
-    border-radius: 2rem;
-    box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
-    gap: 0px;
+    min-width: 350px;
   }
   .data {
     max-width: 580px;
-    background-color: rgb(33, 32, 32);
-    color: white;
-    padding: 10px;
     overflow-y: scroll;
     display: grid;
     grid-template-columns: 1fr;
@@ -335,11 +323,15 @@ body {
   }
   .data form input,
 .data form button {
-    border-radius: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  .data form button {
+    max-width: 350px;
+    padding: 0 2rem;
+    justify-self: center;
   }
   .info {
-    max-width: 450px;
-    margin-left: 10px;
+    margin-left: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 60px);
@@ -366,6 +358,7 @@ body {
   }
   .horizental-info {
     width: 100%;
-    max-width: 550px;
+    max-width: 480px;
+    min-width: 350px;
   }
 }/*# sourceMappingURL=style.css.map */
