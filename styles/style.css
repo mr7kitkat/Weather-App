@@ -267,12 +267,25 @@ body {
     grid-template-rows: 300px 1fr;
     gap: 0px;
   }
+  .data {
+    padding: 20px;
+  }
+  .data form {
+    padding: 0 20px;
+  }
   .info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 80px);
     gap: 0px;
     gap: 8px;
+    padding: 10px;
+  }
+  .info .prop-val {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px;
   }
   .info .prop-val div.sub-info {
     display: flex;
@@ -300,7 +313,7 @@ body {
 }
 @media screen and (max-width: 600px) {
   .app {
-    min-width: 350px;
+    min-width: 300px;
   }
   .data {
     max-width: 580px;
@@ -313,10 +326,11 @@ body {
   }
   .data form {
     max-width: 500px;
-    height: 100%;
+    padding: 10px;
+    height: 100px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 400px;
     grid-template-rows: 1fr 1fr;
     gap: 0px;
     gap: 5px;
@@ -333,7 +347,7 @@ body {
   .info {
     margin-left: 0;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 400px;
     grid-template-rows: repeat(6, 60px);
     gap: 0px;
     gap: 8px;
@@ -358,7 +372,7 @@ body {
   }
   .horizental-info {
     width: 100%;
-    max-width: 480px;
-    min-width: 350px;
+    max-width: 380px;
+    min-width: 300px;
   }
 }/*# sourceMappingURL=style.css.map */
