@@ -282,7 +282,7 @@ body {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
     max-height: 100%;
-    max-width: 100%;
+    max-width: 720px;
 
     border-radius: 0;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
@@ -343,6 +343,7 @@ body {
 @media screen and (max-width: 600px) {
   .app {
     min-width: 300px;
+    max-width: 600px;
   }
   .data {
     max-width: 580px;

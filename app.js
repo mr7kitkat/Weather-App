@@ -3,6 +3,7 @@ import { weatherApp } from "./scripts/weather_mod";
 // Intasiating app
 const app = new weatherApp("samastipur");
 
+// OVER ALL WORKFLOW OF APP
 async function get_weather_Report(placeName = "samastipur") {
   app.location = placeName;
   app
@@ -16,21 +17,30 @@ async function get_weather_Report(placeName = "samastipur") {
     })
     .catch((err) => ErrorHandler(err));
 }
+// THIS FUNCTION HANDLES ERROR
+function ErrorHandler(err) {
+  if (err.message) {
+    alert("Please enter correct city name and TRY AGAIN!");
+  } else {
+    alert("Something is not right, contact to developer");
+  }
+}
 
+// THIS GETS DATA AND RETURN ONE OBJECT CONTAINING CURRENT DAY DATA AND ONE ARRAY HOLDING FORECAST
 function get_cleanData(data) {
   const current = {
     longitude: data.current.coord.lon,
     latitude: data.current.coord.lat,
     weatherCondition: data.current.weather[0].main,
-    temp: data.current.main.temp,
-    feels_like: data.current.main.feels_like,
-    temp_min: data.current.main.temp_min,
-    temp_max: data.current.main.temp_max,
+    temp: kelvinToCelcius(data.current.main.temp),
+    feels_like: kelvinToCelcius(data.current.main.feels_like),
+    temp_min: kelvinToCelcius(data.current.main.temp_min),
+    temp_max: kelvinToCelcius(data.current.main.temp_max),
     pressure: data.current.main.pressure,
-    humidity: data.current.main.humidity,
+    humidity: data.current.main.humidity + " %",
     sea_level: data.current.main.sea_level,
     grnd_level: data.current.main.grnd_level,
-    visibility: data.current.visibility,
+    visibility: (data.current.visibility / 100).toFixed(0) + "%",
     windSpeed: data.current.wind.speed,
     timezone: data.current.timezone,
     cityName: data.current.name,
@@ -52,10 +62,14 @@ function get_cleanData(data) {
     });
   });
 
-  console.log(forecast);
   return { current, forecast };
 }
 
+function kelvinToCelcius(kelvin) {
+  return (kelvin - 273.15).toFixed(2);
+}
+
+// THIS FUNCTION PARSE DATA TO DOM
 function parseData(cleanData) {
   const { current, forecast } = cleanData;
   for (const key in current) {
@@ -86,14 +100,7 @@ function parseData(cleanData) {
   });
 }
 
-function ErrorHandler(err) {
-  if (err.message) {
-    alert("Please enter correct city name and TRY AGAIN!");
-  } else {
-    alert("Something is not right, contact to developer");
-  }
-}
-
+// ALL FUNCTION RUN WHEN WINDOW LOADS
 window.addEventListener("load", () => {
   get_weather_Report("samastipur");
 
