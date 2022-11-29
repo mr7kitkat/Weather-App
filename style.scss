@@ -271,7 +271,7 @@ body {
 
     border-radius: 2rem;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
-    @include grids($col: 1fr, $row: 300px 1fr);
+    @include grids($col: 1fr, $row: calc(100vh * 0.4) 1fr);
   }
 
   // Styling applied on Forecast .horizental-info bar
@@ -286,7 +286,7 @@ body {
 }
 
 // if screen width is max 720px
-@media screen and (max-width: 720px) {
+@media screen and (min-width: 500px) and (max-width: 720px) {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
     max-height: 100%;
@@ -298,12 +298,13 @@ body {
   }
 
   .data {
-    padding: 20px;
-    overflow-x: hidden;
-    max-width: 600px;
+    padding: 10px;
+    max-width: clamp(500px, 98vw, 720px);
     @include setDimension();
     form {
-      padding: 0 20px;
+      max-width: clamp(480px, 90vw, 700px);
+
+      padding: 0 10px;
     }
   }
 
@@ -315,6 +316,7 @@ body {
 
     .prop-val {
       @include grids($col: 70px 1fr);
+      max-width: clamp(200px, 50%, 300px);
 
       div.sub-info {
         @include flex($direction: column-reverse, $align: flex-start);
@@ -334,11 +336,11 @@ body {
   // Special styling applied to today part on top side
   .today.info {
     #tempreture {
-      grid-row: 1/2;
+      grid-row: auto;
     }
 
     #feelingLike {
-      grid-row: 3/4;
+      grid-row: auto;
     }
   }
 
@@ -354,11 +356,11 @@ body {
   }
 }
 
-@media screen and (min-width: 280px) and (max-width: 720px) {
+@media screen and (min-width: 280px) and (max-width: 499px) {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
     max-height: 100%;
-    max-width: clamp(280px, 100vw, 720px);
+    max-width: clamp(280px, 100vw, 499px);
 
     border-radius: 0;
     @include grids($col: 1fr, $row: 300px 1fr);
@@ -367,15 +369,16 @@ body {
   .data {
     padding: 0;
     overflow-x: hidden;
-    max-width: clamp(280px, 100vw, 720px);
+    max-width: clamp(220px, 100vw, 499px);
 
     @include grids($row: 100px 4fr 3fr, $col: 1fr);
 
     form {
       @include setDimension();
       margin: 10px auto;
-      max-width: max(300px, 98vw);
-
+      max-width: max(220px, 90vw);
+      padding: 4px 8px;
+      margin-left: 5px;
       @include grids($row: 1fr 1fr);
       gap: 8px;
 
@@ -395,7 +398,6 @@ body {
   .info {
     @include grids($row: repeat(6, 50px), $col: 1fr);
     margin: 0;
-    padding: 0;
     gap: 8px;
 
     padding: 8px;
@@ -404,7 +406,8 @@ body {
       @include grids($col: 50px 1fr);
 
       padding: 8px auto;
-      max-width: clamp(300px, 96vw, 450px);
+      max-width: max(220px, 90vw);
+
 
       .icon {
         height: 30px;
@@ -429,6 +432,12 @@ body {
           font-size: 12px;
         }
       }
+    }
+  }
+
+  .today.info {
+    #tempreture, #feelingLike {
+      grid-row: auto;
     }
   }
 

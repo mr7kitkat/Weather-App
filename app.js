@@ -9,11 +9,11 @@ async function get_weather_Report(placeName = "samastipur") {
   app
     .makeCall()
     .then((rawData) => {
-      if (rawData.current.cod == 404) {
+      if (rawData.today.cod == 404) {
         throw new Error(rawData.current.message);
       }
-      const cleandata = get_cleanData(rawData);
-      parseData(cleandata);
+      console.log(rawData);
+      parseData(rawData);
     })
     .catch((err) => ErrorHandler(err));
 }
@@ -26,64 +26,21 @@ function ErrorHandler(err) {
   }
 }
 
-// THIS GETS DATA AND RETURN ONE OBJECT CONTAINING CURRENT DAY DATA AND ONE ARRAY HOLDING FORECAST
-function get_cleanData(data) {
-  const current = {
-    longitude: data.current.coord.lon,
-    latitude: data.current.coord.lat,
-    weatherCondition: data.current.weather[0].main,
-    temp: kelvinToCelcius(data.current.main.temp),
-    feels_like: kelvinToCelcius(data.current.main.feels_like),
-    temp_min: kelvinToCelcius(data.current.main.temp_min),
-    temp_max: kelvinToCelcius(data.current.main.temp_max),
-    pressure: data.current.main.pressure,
-    humidity: data.current.main.humidity + " %",
-    sea_level: data.current.main.sea_level,
-    grnd_level: data.current.main.grnd_level,
-    visibility: (data.current.visibility / 100).toFixed(0) + "%",
-    windSpeed: data.current.wind.speed,
-    timezone: data.current.timezone,
-    cityName: data.current.name,
-    country: data.current.sys.country,
-    sunrise: data.current.sys.sunrise,
-    sunset: data.current.sys.sunset,
-  };
-
-  const forecast = [];
-
-  data.forecast.list.forEach((entry) => {
-    const [dateText, timeText] = entry.dt_txt.split(" ");
-    forecast.push({
-      date: entry.dt,
-      temp: entry.main.temp,
-      weatherStatus: entry.weather[0].main,
-      dateInText: dateText,
-      timeInText: timeText,
-    });
-  });
-
-  return { current, forecast };
-}
-
-function kelvinToCelcius(kelvin) {
-  return (kelvin - 273.15).toFixed(2);
-}
-
 // THIS FUNCTION PARSE DATA TO DOM
 function parseData(cleanData) {
-  const { current, forecast } = cleanData;
-  for (const key in current) {
+  const { today, future } = cleanData;
+  for (const key in today) {
     const tempElement = document.querySelectorAll(`.value.${key}`);
     if (tempElement.length) {
       tempElement.forEach((element) => {
-        element.innerText = current[key];
+        element.innerText = today[key];
       });
     }
   }
 
   const forecastContainor = document.querySelector(".horizental-info");
 
-  forecast.forEach((day) => {
+  future.forEach((day) => {
     const htmlContent = `
     <div class="upcoming-day">
       <span class="icon"></span>

@@ -251,7 +251,7 @@ body {
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 300px 1fr;
+    grid-template-rows: 40vh 1fr;
     gap: 0px;
   }
   .horizental-containor {
@@ -264,7 +264,7 @@ body {
     width: 100%;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (min-width: 500px) and (max-width: 720px) {
   .app {
     height: 100vh;
     width: 100vw;
@@ -278,14 +278,14 @@ body {
     gap: 0px;
   }
   .data {
-    padding: 20px;
-    overflow-x: hidden;
-    max-width: 600px;
+    padding: 10px;
+    max-width: clamp(500px, 98vw, 720px);
     height: 100%;
     width: 100%;
   }
   .data form {
-    padding: 0 20px;
+    max-width: clamp(480px, 90vw, 700px);
+    padding: 0 10px;
   }
   .info {
     display: grid;
@@ -300,6 +300,7 @@ body {
     grid-template-columns: 70px 1fr;
     grid-template-rows: 1fr;
     gap: 0px;
+    max-width: clamp(200px, 50%, 300px);
   }
   .info .prop-val div.sub-info {
     display: flex;
@@ -315,10 +316,10 @@ body {
     font-size: 12px;
   }
   .today.info #tempreture {
-    grid-row: 1/2;
+    grid-row: auto;
   }
   .today.info #feelingLike {
-    grid-row: 3/4;
+    grid-row: auto;
   }
   .horizental-containor {
     height: 100%;
@@ -330,12 +331,12 @@ body {
     width: 100%;
   }
 }
-@media screen and (min-width: 280px) and (max-width: 720px) {
+@media screen and (min-width: 280px) and (max-width: 499px) {
   .app {
     height: 100vh;
     width: 100vw;
     max-height: 100%;
-    max-width: clamp(280px, 100vw, 720px);
+    max-width: clamp(280px, 100vw, 499px);
     border-radius: 0;
     display: grid;
     grid-template-columns: 1fr;
@@ -345,7 +346,7 @@ body {
   .data {
     padding: 0;
     overflow-x: hidden;
-    max-width: clamp(280px, 100vw, 720px);
+    max-width: clamp(220px, 100vw, 499px);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 4fr 3fr;
@@ -355,7 +356,9 @@ body {
     height: 100%;
     width: 100%;
     margin: 10px auto;
-    max-width: max(300px, 98vw);
+    max-width: max(220px, 90vw);
+    padding: 4px 8px;
+    margin-left: 5px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
@@ -377,7 +380,6 @@ body {
     grid-template-rows: repeat(6, 50px);
     gap: 0px;
     margin: 0;
-    padding: 0;
     gap: 8px;
     padding: 8px;
   }
@@ -387,7 +389,7 @@ body {
     grid-template-rows: 1fr;
     gap: 0px;
     padding: 8px auto;
-    max-width: clamp(300px, 96vw, 450px);
+    max-width: max(220px, 90vw);
   }
   .info .prop-val .icon {
     height: 30px;
@@ -410,6 +412,9 @@ body {
   }
   .info .prop-val div.sub-info span.prop {
     font-size: 12px;
+  }
+  .today.info #tempreture, .today.info #feelingLike {
+    grid-row: auto;
   }
   .other.info {
     display: grid;
