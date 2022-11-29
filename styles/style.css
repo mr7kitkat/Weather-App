@@ -195,6 +195,14 @@ body {
   font-size: 12px !important;
 }
 
+.horizental-containor {
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  padding: 16px auto;
+  margin: 20px auto;
+}
+
 .horizental-info {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -205,9 +213,6 @@ body {
   grid-auto-columns: minmax(100px, 1fr);
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 16px auto;
-  margin: 20px auto;
-  max-width: 350px;
   height: 145px;
   width: 100%;
 }
@@ -249,9 +254,14 @@ body {
     grid-template-rows: 300px 1fr;
     gap: 0px;
   }
-  .horizental-info {
+  .horizental-containor {
+    height: 100%;
     width: 100%;
     max-width: 600px;
+    padding: 16px auto;
+  }
+  .horizental-info {
+    width: 100%;
   }
 }
 @media screen and (max-width: 720px) {
@@ -270,6 +280,9 @@ body {
   .data {
     padding: 20px;
     overflow-x: hidden;
+    max-width: 600px;
+    height: 100%;
+    width: 100%;
   }
   .data form {
     padding: 0 20px;
@@ -307,8 +320,114 @@ body {
   .today.info #feelingLike {
     grid-row: 3/4;
   }
-  .horizental-info {
+  .horizental-containor {
+    height: 100%;
     width: 100%;
     max-width: 550px;
+    padding: 16px auto;
+  }
+  .horizental-info {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 475px) {
+  .app {
+    height: 100vh;
+    width: 100vw;
+    max-height: 100%;
+    max-width: 475px;
+    border-radius: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
+    gap: 0px;
+  }
+  .data {
+    padding: 0;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 4fr 3fr;
+    gap: 0px;
+  }
+  .data form {
+    height: 100%;
+    width: 100%;
+    margin: 10px auto;
+    max-width: max(300px, 98vw);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px;
+    gap: 8px;
+  }
+  .data form input,
+.data form button {
+    border-radius: 0.5rem;
+  }
+  .data form input {
+    height: 100%;
+    width: 100%;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 50px);
+    gap: 0px;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+    padding: 8px;
+  }
+  .info .prop-val {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px;
+    max-width: max(300px, 98vw);
+    padding: 8px auto;
+    max-width: max(300px, 96vw);
+  }
+  .info .prop-val .icon {
+    height: 30px;
+    margin: 0 5px;
+    text-align: center;
+  }
+  .info .prop-val .icon img {
+    height: 100%;
+    max-width: 100%;
+  }
+  .info .prop-val div.sub-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    margin-left: 5px;
+  }
+  .info .prop-val div.sub-info span.value {
+    font-size: 20px;
+  }
+  .info .prop-val div.sub-info span.prop {
+    font-size: 12px;
+  }
+  .other.info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 50px);
+    gap: 0px;
+    gap: 8px;
+  }
+  .temp-data,
+form {
+    margin-top: 16px;
+  }
+  .horizental-containor {
+    height: 100%;
+    width: 100%;
+    max-width: max(300px, 98vw);
+    padding: 16px;
+  }
+  .horizental-info {
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

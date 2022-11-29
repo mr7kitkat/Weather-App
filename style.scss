@@ -219,6 +219,13 @@ body {
   }
 }
 
+.horizental-containor {
+  @include setDimension();
+  max-width: 350px;
+  padding: 16px auto;
+  margin: 20px auto;
+}
+
 // Styling applied on Forecast .horizental-info bar
 .horizental-info {
   @include grids($col: repeat(auto-fill, minmax(100px, 1fr)), $row: 1fr);
@@ -229,9 +236,6 @@ body {
   overflow-y: hidden;
   overflow-x: scroll;
 
-  padding: 16px auto;
-  margin: 20px auto;
-  max-width: 350px;
   @include setDimension($h: 145px, $w: 100%);
 
   // Divs of upcomeing data
@@ -271,9 +275,13 @@ body {
   }
 
   // Styling applied on Forecast .horizental-info bar
+  .horizental-containor {
+    @include setDimension();
+    max-width: 600px;
+    padding: 16px auto;
+  }
   .horizental-info {
     width: 100%;
-    max-width: 600px;
   }
 }
 
@@ -292,7 +300,8 @@ body {
   .data {
     padding: 20px;
     overflow-x: hidden;
-
+    max-width: 600px;
+    @include setDimension();
     form {
       padding: 0 20px;
     }
@@ -333,9 +342,113 @@ body {
     }
   }
 
+  .horizental-containor {
+    @include setDimension();
+    max-width: 550px;
+    padding: 16px auto;
+  }
+
   // Styling applied on Forecast .horizental-info bar
   .horizental-info {
     width: 100%;
-    max-width: 550px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 475px) {
+  .app {
+    @include setDimension($h: 100vh, $w: 100vw);
+    max-height: 100%;
+    max-width: 475px;
+
+    border-radius: 0;
+    @include grids($col: 1fr, $row: 300px 1fr);
+  }
+
+  .data {
+    padding: 0;
+    overflow-x: hidden;
+    @include grids($row: 100px 4fr 3fr, $col: 1fr);
+
+    form {
+      @include setDimension();
+      margin: 10px auto;
+      max-width: max(300px, 98vw);
+
+      @include grids($row: 1fr 1fr);
+      gap: 8px;
+
+      input,
+      button {
+        border-radius: 0.5rem;
+      }
+
+      input {
+        @include setDimension();
+      }
+    }
+  }
+
+  // Styling Today data part of the app
+  .info {
+    @include grids($row: repeat(6, 50px), $col: 1fr);
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+
+    padding: 8px;
+
+    .prop-val {
+      @include grids($col: 50px 1fr);
+      max-width: max(300px, 98vw);
+
+      padding: 8px auto;
+      max-width: max(300px, 96vw);
+
+      .icon {
+        height: 30px;
+        margin: 0 5px;
+        text-align: center;
+
+        img {
+          height: 100%;
+          max-width: 100%;
+        }
+      }
+
+      div.sub-info {
+        @include flex($direction: column-reverse, $align: flex-start);
+        margin-left: 5px;
+
+        span.value {
+          font-size: 20px;
+        }
+
+        span.prop {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .other.info {
+    @include grids($row: repeat(8, 50px));
+    gap: 8px;
+  }
+
+  .temp-data,
+  form {
+    margin-top: 16px;
+  }
+
+  .horizental-containor {
+    @include setDimension();
+    max-width: max(300px, 98vw);
+
+    padding: 16px;
+  }
+
+  // Styling applied on Forecast .horizental-info bar
+  .horizental-info {
+    width: 100%;
   }
 }
