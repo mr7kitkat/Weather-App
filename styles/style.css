@@ -330,12 +330,12 @@ body {
     width: 100%;
   }
 }
-@media screen and (min-width: 320px) and (max-width: 475px) {
+@media screen and (min-width: 280px) and (max-width: 720px) {
   .app {
     height: 100vh;
     width: 100vw;
     max-height: 100%;
-    max-width: 475px;
+    max-width: clamp(280px, 100vw, 720px);
     border-radius: 0;
     display: grid;
     grid-template-columns: 1fr;
@@ -345,6 +345,7 @@ body {
   .data {
     padding: 0;
     overflow-x: hidden;
+    max-width: clamp(280px, 100vw, 720px);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 100px 4fr 3fr;
@@ -364,6 +365,7 @@ body {
   .data form input,
 .data form button {
     border-radius: 0.5rem;
+    max-width: clamp(300px, 96vw, 450px);
   }
   .data form input {
     height: 100%;
@@ -384,9 +386,8 @@ body {
     grid-template-columns: 50px 1fr;
     grid-template-rows: 1fr;
     gap: 0px;
-    max-width: max(300px, 98vw);
     padding: 8px auto;
-    max-width: max(300px, 96vw);
+    max-width: clamp(300px, 96vw, 450px);
   }
   .info .prop-val .icon {
     height: 30px;

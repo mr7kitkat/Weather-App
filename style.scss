@@ -354,11 +354,11 @@ body {
   }
 }
 
-@media screen and (min-width: 320px) and (max-width: 475px) {
+@media screen and (min-width: 280px) and (max-width: 720px) {
   .app {
     @include setDimension($h: 100vh, $w: 100vw);
     max-height: 100%;
-    max-width: 475px;
+    max-width: clamp(280px, 100vw, 720px);
 
     border-radius: 0;
     @include grids($col: 1fr, $row: 300px 1fr);
@@ -367,6 +367,8 @@ body {
   .data {
     padding: 0;
     overflow-x: hidden;
+    max-width: clamp(280px, 100vw, 720px);
+
     @include grids($row: 100px 4fr 3fr, $col: 1fr);
 
     form {
@@ -380,6 +382,7 @@ body {
       input,
       button {
         border-radius: 0.5rem;
+        max-width: clamp(300px, 96vw, 450px);
       }
 
       input {
@@ -399,10 +402,9 @@ body {
 
     .prop-val {
       @include grids($col: 50px 1fr);
-      max-width: max(300px, 98vw);
 
       padding: 8px auto;
-      max-width: max(300px, 96vw);
+      max-width: clamp(300px, 96vw, 450px);
 
       .icon {
         height: 30px;
