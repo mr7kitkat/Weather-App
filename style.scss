@@ -271,7 +271,7 @@ body {
 
     border-radius: 2rem;
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
-    @include grids($col: 1fr, $row: calc(100vh * 0.4) 1fr);
+    @include grids($col: 1fr, $row: max(220px, 30%) 1fr);
   }
 
   // Styling applied on Forecast .horizental-info bar
@@ -408,7 +408,6 @@ body {
       padding: 8px auto;
       max-width: max(220px, 90vw);
 
-
       .icon {
         height: 30px;
         margin: 0 5px;
@@ -436,7 +435,8 @@ body {
   }
 
   .today.info {
-    #tempreture, #feelingLike {
+    #tempreture,
+    #feelingLike {
       grid-row: auto;
     }
   }

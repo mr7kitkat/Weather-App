@@ -12,7 +12,6 @@ async function get_weather_Report(placeName = "samastipur") {
       if (rawData.today.cod == 404) {
         throw new Error(rawData.current.message);
       }
-      console.log(rawData);
       parseData(rawData);
     })
     .catch((err) => ErrorHandler(err));
@@ -46,9 +45,9 @@ function parseData(cleanData) {
       <span class="icon"></span>
       <h4>${day.temp}</h4>
       <div class="status">
-        <p class="weather-condition">${day.weatherStatus}</p>
-        <p class="forecast date">${day.dateInText}</p>
-        <p class="forecast time">${day.timeInText}</p>
+        <p class="weather-condition">${day.weather}</p>
+        <p class="forecast date">${day.date}</p>
+        <p class="forecast time">${day.time}</p>
       </div>
     </div>
     `;

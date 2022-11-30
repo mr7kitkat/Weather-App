@@ -251,7 +251,7 @@ body {
     box-shadow: 5px 5px 20px lightgray, 8px 8px 24px gray;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 40vh 1fr;
+    grid-template-rows: max(220px, 30%) 1fr;
     gap: 0px;
   }
   .horizental-containor {
@@ -413,7 +413,8 @@ body {
   .info .prop-val div.sub-info span.prop {
     font-size: 12px;
   }
-  .today.info #tempreture, .today.info #feelingLike {
+  .today.info #tempreture,
+.today.info #feelingLike {
     grid-row: auto;
   }
   .other.info {
