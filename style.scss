@@ -76,8 +76,12 @@ body {
 // Image background side of app
 .background {
   @include setDimension();
-  background-color: $bg-color-main1;
   @include grids($row: 1fr 1fr);
+
+  background-image: url("../images/thunderstromex.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 // Data side where weather related data will be shown

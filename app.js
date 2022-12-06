@@ -1,10 +1,10 @@
 import { weatherApp } from "./scripts/weather_mod";
 
 // Intasiating app
-const app = new weatherApp("samastipur");
+const app = new weatherApp("Samastipur");
 
 // OVER ALL WORKFLOW OF APP
-async function get_weather_Report(placeName = "samastipur") {
+async function get_weather_Report(placeName = "Samastipur") {
   app.location = placeName;
   app
     .makeCall()
@@ -57,17 +57,17 @@ function parseData(cleanData) {
 }
 
 // ALL FUNCTION RUN WHEN WINDOW LOADS
-window.addEventListener("load", () => {
-  get_weather_Report("samastipur");
+// window.addEventListener("load", () => {
+//   get_weather_Report("samastipur");
 
-  const formElement = document.querySelector("form");
+//   const formElement = document.querySelector("form");
 
-  formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+//   formElement.addEventListener("submit", (event) => {
+//     event.preventDefault();
 
-    const input = formElement.querySelector("input").value.trim();
-    if (input) {
-      get_weather_Report(input);
-    }
-  });
-});
+//     const input = formElement.querySelector("input").value.trim();
+//     if (input) {
+//       get_weather_Report(input);
+//     }
+//   });
+// });
