@@ -1,27 +1,23 @@
 import { weatherApp } from "./scripts/weather_mod";
 
 // Intasiating app
-const app = new weatherApp("Samastipur");
+const app = new weatherApp();
 
 // OVER ALL WORKFLOW OF APP
 async function get_weather_Report(placeName = "Samastipur") {
   app.location = placeName;
-  app
-    .makeCall()
-    .then((rawData) => {
-      if (rawData.today.cod == 404) {
-        throw new Error(rawData.current.message);
-      }
-      parseData(rawData);
-    })
-    .catch((err) => ErrorHandler(err));
-}
-// THIS FUNCTION HANDLES ERROR
-function ErrorHandler(err) {
-  if (err.message) {
-    alert("Please enter correct city name and TRY AGAIN!");
+
+  if (navigator.onLine) {
+    app
+      .makeCall()
+      .then((data) => {
+        parseData(data);
+      })
+      .catch((err) => alert("Place not found, please try with a valid name!"));
   } else {
-    alert("Something is not right, contact to developer");
+    alert(
+      "It seems you're offline right now, So please check your internet connection and Try Again !"
+    );
   }
 }
 
@@ -29,10 +25,10 @@ function ErrorHandler(err) {
 function parseData(cleanData) {
   const { today, future } = cleanData;
   for (const key in today) {
-    const tempElement = document.querySelectorAll(`.value.${key}`);
+    const tempElement = document.querySelectorAll(`.value .${key}`);
     if (tempElement.length) {
       tempElement.forEach((element) => {
-        element.innerText = today[key];
+        element.innerText = today[key] || 0;
       });
     }
   }
@@ -42,8 +38,11 @@ function parseData(cleanData) {
   future.forEach((day) => {
     const htmlContent = `
     <div class="upcoming-day">
-      <span class="icon"></span>
-      <h4>${day.temp}</h4>
+      <span class="icon"></span>  
+      <h4>
+        <span class="temp">${day.temp}</span>
+        <span class="suffix">°C</span>
+      </h4>
       <div class="status">
         <p class="weather-condition">${day.weather}</p>
         <p class="forecast date">${day.date}</p>
@@ -57,17 +56,21 @@ function parseData(cleanData) {
 }
 
 // ALL FUNCTION RUN WHEN WINDOW LOADS
-// window.addEventListener("load", () => {
-//   get_weather_Report("samastipur");
+window.addEventListener("load", () => {
+  const formElement = document.querySelector("form");
+  const input = formElement.querySelector("input");
 
-//   const formElement = document.querySelector("form");
+  // Intasiating state of app for 1st opening
+  input.value = "Samastipur";
+  let place = input.value;
+  get_weather_Report(place);
 
-//   formElement.addEventListener("submit", (event) => {
-//     event.preventDefault();
+  formElement.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let place = input.value;
 
-//     const input = formElement.querySelector("input").value.trim();
-//     if (input) {
-//       get_weather_Report(input);
-//     }
-//   });
-// });
+    if (place) {
+      get_weather_Report(place);
+    }
+  });
+});

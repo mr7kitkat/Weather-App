@@ -78,12 +78,14 @@ body {
   @include setDimension();
   @include grids($row: 1fr 1fr);
 
-  background-image: url("../images/thunderstromex.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.upcoming-day .suffix {
+  font-size: 14px;
+}
 // Data side where weather related data will be shown
 .data {
   @include setDimension();
@@ -114,11 +116,20 @@ body {
       border-top-left-radius: $radius;
       border-bottom-left-radius: $radius;
       padding-left: 20px;
+
+      background: rgb(100,100,100);
+      color: $text-color-gold;
+      letter-spacing: 1.2px;
+      font-style: italic;
+      text-transform: capitalize;
     }
 
     button {
       border-top-right-radius: $radius;
       border-bottom-right-radius: $radius;
+
+      background: $text-color-gold;
+      color: $bg-color-main2;
     }
   }
 }
@@ -186,9 +197,14 @@ body {
 
   .prop-val:hover {
     background-color: rgb(25, 25, 25);
-    box-shadow: 0 0 10px $text-color-yellow;
+    box-shadow: 0 0 6px $text-color-yellow;
     transform: scale(1.01);
   }
+}
+
+.suffix {
+  font-size: 22px;
+  font-style: italic;
 }
 
 // Special styling applied to today part on top side
@@ -204,6 +220,7 @@ body {
   #feelingLike {
     grid-row: 3/5;
   }
+
 }
 
 // Styling applied on bottom part
@@ -220,6 +237,9 @@ body {
 
   span.prop {
     font-size: 12px !important;
+  }
+  .suffix {
+    font-size: 14px;
   }
 }
 
@@ -265,6 +285,7 @@ body {
     }
   }
 }
+
 
 // if screen width is max 1080px
 @media screen and (max-width: 1080px) {

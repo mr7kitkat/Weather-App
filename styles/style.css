@@ -57,10 +57,13 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px;
-  background-image: url("../images/thunderstromex.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.upcoming-day .suffix {
+  font-size: 14px;
 }
 
 .data {
@@ -98,10 +101,17 @@ body {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
   padding-left: 20px;
+  background: rgb(100, 100, 100);
+  color: gold;
+  letter-spacing: 1.2px;
+  font-style: italic;
+  text-transform: capitalize;
 }
 .data form button {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
+  background: gold;
+  color: rgb(33, 32, 32);
 }
 
 .l1Head {
@@ -171,8 +181,13 @@ body {
 }
 .info .prop-val:hover {
   background-color: rgb(25, 25, 25);
-  box-shadow: 0 0 10px yellow;
+  box-shadow: 0 0 6px yellow;
   transform: scale(1.01);
+}
+
+.suffix {
+  font-size: 22px;
+  font-style: italic;
 }
 
 .today.info #tempreture {
@@ -196,6 +211,9 @@ body {
 }
 .other.info span.prop {
   font-size: 12px !important;
+}
+.other.info .suffix {
+  font-size: 14px;
 }
 
 .horizental-containor {
