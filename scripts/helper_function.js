@@ -32,3 +32,20 @@ export function formatDate(timestamp) {
   ];
   return dateObj.getDate() + " " + monthNames[dateObj.getMonth()];
 }
+
+export function randomChoice(ary) {
+  return ary[Math.floor(Math.random() * ary.length)];
+}
+
+export const season = {
+  winter: [],
+  summer: [],
+  spring: [],
+  rain: [],
+  thunderstorm: [],
+  snow: [],
+  volcano: [],
+  tornado: [],
+  mist: [],
+  cloudy: [],
+};

@@ -48,6 +48,7 @@ export class weatherApp {
   }
 
   async cleanData([current, forecast]) {
+    // get season name
     function getSeason(temp, id, code = 0) {
       if (id.startsWith("01")) {
         if (temp < 25) {
@@ -79,6 +80,9 @@ export class weatherApp {
       }
     }
 
+    // keys -> longitute, latitude, id, temp, feels_like, temp_min, temp_max, pressure,
+    // humidity, sea_level, grnd_level,visibility, windspeed, cloiudiness, cityName, country,
+    // sunrise, sunset, season,
     const today = {
       longitude: current.coord.lon,
       latitude: current.coord.lat,
@@ -110,6 +114,7 @@ export class weatherApp {
       const targetDate = Date.parse(entry.dt_txt);
       const theDate = formatDate(targetDate);
       const theTime = formatTime(targetDate);
+      // key -> date, temp, weather, season, id, time, weatherStatus
       future.push({
         date: theDate,
         temp: kelvinToCelcius(entry.main.temp),
@@ -121,6 +126,7 @@ export class weatherApp {
         ),
         id: entry.weather[0].icon,
         time: theTime,
+        weatherStatus: entry.weather[0].description,
       });
     });
 

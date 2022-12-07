@@ -1,5 +1,5 @@
 import { weatherApp } from "./scripts/weather_mod";
-
+import { season, randomChoice } from "./scripts/helper_function";
 // Intasiating app
 const app = new weatherApp();
 
@@ -12,6 +12,7 @@ async function get_weather_Report(placeName = "Samastipur") {
       .makeCall()
       .then((data) => {
         parseData(data);
+        setBackgroundImage(data.today.season);
       })
       .catch((err) => alert("Place not found, please try with a valid name!"));
   } else {
@@ -44,7 +45,7 @@ function parseData(cleanData) {
         <span class="suffix">°C</span>
       </h4>
       <div class="status">
-        <p class="weather-condition">${day.weather}</p>
+        <p class="weather-condition">${day.weatherStatus}</p>
         <p class="forecast date">${day.date}</p>
         <p class="forecast time">${day.time}</p>
       </div>
