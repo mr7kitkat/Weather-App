@@ -60,9 +60,8 @@ function parseData(cleanData) {
   div.style.backgroundImage = "";
 
   let image = getImage(imageObj, today.status, today.season);
-  let imagePath = `url(../images/${image})`;
+  let imagePath = `url(./images/${image})`;
 
-  console.log(imagePath);
   div.style.backgroundImage = imagePath;
 }
 

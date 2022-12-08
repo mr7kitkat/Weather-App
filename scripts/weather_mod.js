@@ -1,4 +1,4 @@
-import key from "../apikey.json" assert { type: "json" };
+import apikey from "../apikey.json" assert { type: "json" };
 import {
   kelvinToCelcius,
   formatTime,
@@ -8,7 +8,7 @@ import {
 
 export class weatherApp {
   constructor(locationInput) {
-    this.apiKey = key;
+    this.apiKey = apikey["key"];
     this._location = locationInput;
   }
 
