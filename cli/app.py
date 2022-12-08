@@ -1,57 +1,45 @@
 import json
-import requests
-from helper import kelvinToCelcius
-from pyfiglet import Figlet
-from tabulate import tabulate
+from sys import exit, argv
+from helper import make_request, cleanData, printHeader, printToTable, getLocation, validateLocation
+from expections import *
+
 
 def main():
     # open json file and read api key
     data = json.load(open("../apikey.json"))
     APIKEY = data["key"]
-    data = make_request("Tokyo", APIKEY)
+    
+    # Getting user input handline input from command line OR user input
+    arg_count = len(argv)
+    if arg_count == 1:
+        locationName = getLocation()
+    elif arg_count == 2:
+        locationName = argv[1]
+
+        if not validateLocation(locationName):
+            exit("Invalid Input")
+    else:
+        exit("Too many argument!")
+    
+    
+    # Make network request
+    try:
+        data = make_request(locationName, APIKEY)
+    except LocationNotFound:
+        exit("Invalid location input, please try again with a valid location!")
+    except:
+        exit("Gets an unknown error while getting data")
+
+
+    # Data cleaning
     sanitized_data = cleanData(data)
 
-    
-    printHeader(sanitized_data["Tempreture"],sanitized_data["Status"], sanitized_data["City"])
+    # Printing Header
+    printHeader(sanitized_data["City"])
+    # Printing data table
     printToTable(sanitized_data, headers=["Data", "Value"])
 
 
-def make_request(location, apikey):
-    URL = "https://api.openweathermap.org/data/2.5/weather"
-    response = requests.get(URL, {"q":location, "apikey": apikey})
-    return response.json()
-
-
-def cleanData(rawdata):
-    return {
-        "Status": rawdata["weather"][0]["description"],
-        "Tempreture": kelvinToCelcius(rawdata["main"]["temp"]),
-        "Feels Like": kelvinToCelcius(rawdata["main"]["feels_like"]),
-        "Min Temp": kelvinToCelcius(rawdata["main"]["temp_min"]),
-        "Max Temp": kelvinToCelcius(rawdata["main"]["temp_max"]),
-        "Pressure": rawdata["main"].get("pressure", 0),
-        "Humidity": f'{rawdata["main"].get("humidity", 0)} %',
-        "Sea Level": rawdata["main"].get("sea_level", 0),
-        "Ground Level": rawdata["main"].get("grnd_level", 0),
-        "Visibility": f'{round(rawdata["visibility"] / 100)} %',
-        "City": rawdata["name"],
-        "Wind Speed": rawdata["wind"].get("speed", 0),
-        "Clouds": f'{rawdata["clouds"]["all"]} %',
-        "Date": rawdata["dt"],  
-        "Sunrise": rawdata["sys"]["sunrise"],
-        "Sunset": rawdata["sys"]["sunset"],
-    }
-
-def printToTable(data, headers, format = "psql"):
-    dataList = data.items()
-    print(tabulate(dataList, headers=headers, tablefmt=format))
-    
-def printHeader(temp,weatherStatus, cityName, fontStyle = "big"):
-    city = cityName.upper()
-    textToDisplay = f"{temp} - {weatherStatus.capitalize()}\n\t {city}"
-
-    fengine = Figlet(font=fontStyle)
-    print(fengine.renderText(textToDisplay))
 
 if __name__ == "__main__":
     main()

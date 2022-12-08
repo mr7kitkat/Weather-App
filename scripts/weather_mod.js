@@ -1,9 +1,14 @@
-import { kelvinToCelcius, formatTime, formatDate } from "./helper_function";
-import key from "../apikey.json" assert { type: "json" };
+import apikey from "../apikey.json" assert { type: "json" };
+import {
+  kelvinToCelcius,
+  formatTime,
+  formatDate,
+  dayStatus,
+} from "./helper_function";
 
 export class weatherApp {
   constructor(locationInput) {
-    this.apiKey = key;
+    this.apiKey = apikey["key"];
     this._location = locationInput;
   }
 
@@ -54,7 +59,7 @@ export class weatherApp {
       if (id.startsWith("01")) {
         if (temp < 25) {
           return "winter";
-        } else if ((temp) => 26 && temp < 35) {
+        } else if (((temp) => 26) && temp < 35) {
           return "spring";
         } else {
           return "summer";
@@ -108,6 +113,7 @@ export class weatherApp {
         current.weather[0].icon,
         current.weather[0].id
       ),
+      status: dayStatus(current.weather[0].icon),
     };
 
     const future = [];
@@ -128,6 +134,7 @@ export class weatherApp {
         id: entry.weather[0].icon,
         time: theTime,
         weatherStatus: entry.weather[0].description,
+        status: dayStatus(entry.weather[0].icon),
       });
     });
 

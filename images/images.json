@@ -1,0 +1,100 @@
+{
+    "winter": {
+        "day": [
+            "day-winter-2.jpg",
+            "day-winter-4.jpg",
+            "day-winter-5.jpg"
+        ],
+        "night": [
+            "night-winter-2.jpg",
+            "night-winter-3.jpg",
+            "night-winter-4.jpg",
+            "night-winter.jpg",
+            "night-winters.jpg",
+            "night_winter.jpg"
+        ]
+    },
+    "summer": {
+        "day": [
+            "day-summer-2.jpg",
+            "day-summer.jpg"
+        ],
+        "night": [
+            "night-summer-1.jpg",
+            "night-summer-2.jpg",
+            "night-summer.jpg",
+            "night_summer.jpg"
+        ]
+    },
+    "spring": {
+        "day": [
+            "day-spring-2.jpg",
+            "day-spring.jpg",
+            "day-springs-3.jpg"
+        ],
+        "night": [
+            "night-spring-2.jpg",
+            "night-spring-3.jpg",
+            "night-spring-4.jpg"
+        ]
+    },
+    "rain": {
+        "day": [
+            "day-rain-1.jpg",
+            "day-rain-2.jpg",
+            "day-rain-3.jpg",
+            "day-rain-4.jpg",
+            "day-rain-5.jpg",
+            "day-rain-6.jpg",
+            "day-rain.jpg"
+        ],
+        "night": [
+            "night-rain-2.jpg",
+            "night-rain.jpg"
+        ]
+    },
+    "thunderstorm": [],
+    "snow": {
+        "day": [
+            "day-snow-2.jpg",
+            "day-snow-7.jpg",
+            "day-snow.jpg"
+        ],
+        "night": [
+            "night-snow-2.jpg",
+            "night-snow.jpg"
+        ]
+    },
+    "volcano": [
+        "volcano.jpg"
+    ],
+    "tornado": [
+        "tornado.jpg"
+    ],
+    "mist": {
+        "day": [
+            "day-mist-1.jpg",
+            "day-mist-2.jpg",
+            "day-mist-3.jpg",
+            "day-mist-4.jpg",
+            "day-mist-5.jpg",
+            "day-mist.jpg",
+            "day-mist3.jpg"
+        ],
+        "night": [
+            "night-mist.jpg"
+        ]
+    },
+    "cloudy": {
+        "day": [
+            "day-cloudy-2.jpg",
+            "day-cloudy-3.jpg",
+            "day-cloudy.jpg"
+        ],
+        "night": [
+            "night-cloudy-4.jpg",
+            "night-cloudy-5.jpg",
+            "night-cloudy.jpg"
+        ]
+    }
+}
