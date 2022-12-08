@@ -3,7 +3,7 @@ from pyfiglet import Figlet
 from tabulate import tabulate
 from expections import *
 from sys import exit, argv
-from colorama import Fore
+
 
 # turning kelvin to celcius
 def kelvinToCelcius(kelvin):
@@ -48,18 +48,15 @@ def cleanData(rawdata):
 # output data as table
 def printToTable(data, headers, format = "psql"):
     dataList = data.items()
-    print(Fore.YELLOW,tabulate(dataList, headers=headers, tablefmt=format))
+    print(tabulate(dataList, headers=headers, tablefmt=format))
     
 # Print Header
 def printHeader(cityName, fontStyle = "banner3-D"):
     city = cityName.upper()    
     fengine = Figlet(font=fontStyle)
-    print(Fore.RED, fengine.renderText(cityName.upper()), end="")
+    print(fengine.renderText(city), end="")
 
-    
-    
-    
-    
+# Get user input   
 def getLocation():
     while True:
         location = input("Location Name: ").lower()
@@ -69,6 +66,6 @@ def getLocation():
         else:
             pass
 
-
+# CHecking validation
 def validateLocation(location):
     return location and location.isalpha()
