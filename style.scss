@@ -78,7 +78,6 @@ body {
   @include setDimension();
   @include grids($row: 1fr 1fr);
 
-  background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -117,7 +116,7 @@ body {
       border-bottom-left-radius: $radius;
       padding-left: 20px;
 
-      background: rgb(100,100,100);
+      background: rgb(100, 100, 100);
       color: $text-color-gold;
       letter-spacing: 1.2px;
       font-style: italic;
@@ -220,7 +219,6 @@ body {
   #feelingLike {
     grid-row: 3/5;
   }
-
 }
 
 // Styling applied on bottom part
@@ -285,7 +283,6 @@ body {
     }
   }
 }
-
 
 // if screen width is max 1080px
 @media screen and (max-width: 1080px) {

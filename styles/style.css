@@ -57,7 +57,6 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px;
-  background-size: contain;
   background-repeat: no-repeat;
   background-size: cover;
 }

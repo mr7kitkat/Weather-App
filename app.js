@@ -1,5 +1,7 @@
 import { weatherApp } from "./scripts/weather_mod";
-import { season, randomChoice } from "./scripts/helper_function";
+import imageObj from "./images/images.json" assert { type: "json" };
+import { getImage } from "./scripts/helper_function";
+
 // Intasiating app
 const app = new weatherApp();
 
@@ -12,7 +14,6 @@ async function get_weather_Report(placeName = "Samastipur") {
       .makeCall()
       .then((data) => {
         parseData(data);
-        setBackgroundImage(data.today.season);
       })
       .catch((err) => alert("Place not found, please try with a valid name!"));
   } else {
@@ -39,7 +40,7 @@ function parseData(cleanData) {
   future.forEach((day) => {
     const htmlContent = `
     <div class="upcoming-day">
-      <span class="icon"></span>  
+      <span class="icon"></span>
       <h4>
         <span class="temp">${day.temp}</span>
         <span class="suffix">°C</span>
@@ -54,6 +55,15 @@ function parseData(cleanData) {
 
     forecastContainor.innerHTML += htmlContent;
   });
+
+  const div = document.querySelector("div .background");
+  div.style.backgroundImage = "";
+
+  let image = getImage(imageObj, today.status, today.season);
+  let imagePath = `url(../images/${image})`;
+
+  console.log(imagePath);
+  div.style.backgroundImage = imagePath;
 }
 
 // ALL FUNCTION RUN WHEN WINDOW LOADS
@@ -65,7 +75,6 @@ window.addEventListener("load", () => {
   input.value = "Samastipur";
   let place = input.value;
   get_weather_Report(place);
-
   formElement.addEventListener("submit", (event) => {
     event.preventDefault();
     let place = input.value;

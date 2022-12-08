@@ -33,19 +33,24 @@ export function formatDate(timestamp) {
   return dateObj.getDate() + " " + monthNames[dateObj.getMonth()];
 }
 
-export function randomChoice(ary) {
-  return ary[Math.floor(Math.random() * ary.length)];
+export function dayStatus(text) {
+  if (text.includes("d")) {
+    return "day";
+  } else {
+    return "night";
+  }
 }
 
-export const season = {
-  winter: [],
-  summer: [],
-  spring: [],
-  rain: [],
-  thunderstorm: [],
-  snow: [],
-  volcano: [],
-  tornado: [],
-  mist: [],
-  cloudy: [],
-};
+export function getImage(imageObj, status = "day", season) {
+  function randomItem(ary) {
+    const idx = Math.floor(Math.random() * ary.length);
+    return ary[idx];
+  }
+
+  const check = Array.isArray(imageObj[`${season}`]);
+  if (check) {
+    return randomItem(imageObj[`${season}`]);
+  } else {
+    return randomItem(imageObj[`${season}`][`${status}`]);
+  }
+}
