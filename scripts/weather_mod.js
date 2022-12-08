@@ -1,8 +1,9 @@
 import { kelvinToCelcius, formatTime, formatDate } from "./helper_function";
+import key from "../apikey.json" assert { type: "json" };
 
 export class weatherApp {
   constructor(locationInput) {
-    this.apiKey = `5778ebef63827aa7fd5a136d866fd37d`;
+    this.apiKey = key;
     this._location = locationInput;
   }
 
