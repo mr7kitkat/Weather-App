@@ -1,5 +1,0 @@
-requests
-pyfiglet
-tabulate
-json
-colorama
