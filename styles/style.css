@@ -241,6 +241,7 @@ body {
   width: 100%;
   border: 1px solid rgba(211, 211, 211, 0.452);
   border-radius: 0.8rem;
+  padding: 2px 5px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -249,7 +250,6 @@ body {
 .horizental-info .upcoming-day .icon {
   height: 30px;
   width: 30px;
-  background-color: yellow;
 }
 .horizental-info .upcoming-day .status {
   display: flex;
@@ -257,8 +257,22 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.horizental-info .upcoming-day .forecast {
-  font-size: 14px;
+.horizental-info .upcoming-day .status p {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.horizental-info .upcoming-day .status .weather-condition {
+  color: gold;
+  font-style: italic;
+  font-weight: bold;
+}
+.horizental-info .upcoming-day .status .forecast {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 1080px) {

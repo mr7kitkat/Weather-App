@@ -265,22 +265,38 @@ body {
     @include setDimension();
     border: 1px solid rgba(211, 211, 211, 0.452);
     border-radius: 0.8rem;
-
+    padding: 2px 5px;
     @include flex($direction: column, $justify: space-evenly);
+
 
     // icon styling
     .icon {
       @include setDimension($h: 30px, $w: 30px);
-      background-color: $text-color-yellow;
     }
 
     .status {
       @include flex($direction: column, $justify: space-evenly);
+
+      p {
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      .weather-condition {
+        color: $text-color-gold;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .forecast {
+        font-size: 12px;
+        @include flex($direction: column, $justify: space-evenly);
+      }
+
     }
 
-    .forecast {
-      font-size: 14px;
-    }
+    
   }
 }
 

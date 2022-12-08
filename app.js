@@ -38,17 +38,30 @@ function parseData(cleanData) {
   const forecastContainor = document.querySelector(".horizental-info");
 
   future.forEach((day) => {
+    let img = "";
+    if (day.id.includes("03") || day.id.includes("04")) {
+      img = "0304";
+    } else if (day.id.includes("09")) {
+      img = "09";
+    } else if (day.id.includes("13")) {
+      img = "13";
+    } else {
+      img = day.id;
+    }
+
     const htmlContent = `
     <div class="upcoming-day">
-      <span class="icon"></span>
+      <img src="./images/icons/${img}.png" alt="" class="icon">
       <h4>
         <span class="temp">${day.temp}</span>
         <span class="suffix">°C</span>
       </h4>
       <div class="status">
         <p class="weather-condition">${day.weatherStatus}</p>
-        <p class="forecast date">${day.date}</p>
-        <p class="forecast time">${day.time}</p>
+        <p class="forecast">
+          <span class="date">${day.time}</span>
+          <span class="time">${day.date}</span>
+        </p>
       </div>
     </div>
     `;
